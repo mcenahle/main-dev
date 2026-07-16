@@ -7,7 +7,7 @@ export default defineConfig({
     enabled: false,
   },
   site: "https://mcenahle.dev",
-  trailingSlash: "always",
+  trailingSlash: "never",
   build: {
     format: "directory",
   },
