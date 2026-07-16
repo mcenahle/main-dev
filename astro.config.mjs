@@ -6,4 +6,9 @@ export default defineConfig({
   devToolbar: {
     enabled: false,
   },
+  site: "https://mcenahle.dev",
+  trailingSlash: "always",
+  build: {
+    format: "directory",
+  },
 });
