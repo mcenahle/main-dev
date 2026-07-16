@@ -1,5 +1,6 @@
 ---
 import Footer from "./Footer.astro";
+import { ClientRouter } from "astro:transitions";
 const pathname = Astro.url.pathname;
 
 const editUrl =
@@ -22,6 +23,7 @@ const editUrl =
     <script
       src="https://code.iconify.design/iconify-icon/3.0.0/iconify-icon.min.js"
     ></script>
+    <ClientRouter />
 
     <style>
       html,
@@ -110,6 +112,12 @@ const editUrl =
 
       a {
         text-decoration: none;
+      }
+    </style>
+
+    <style is:global>
+      .articles p {
+        text-indent: 2em;
       }
     </style>
   </head>
