@@ -1,0 +1,39 @@
+---
+interface Props {
+  editUrl?: string;
+}
+
+const { editUrl } = Astro.props;
+---
+
+<footer class="footer mt-auto py-3 bg-body-tertiary">
+  <div class="container">
+    <span class="text-body-secondary">
+      <small
+        >{
+          editUrl && (
+            <a href={editUrl} target="_blank" rel="noopener noreferrer">
+              <iconify-icon icon="mdi:edit-outline" />
+              &nbsp;
+              <u>在 GitHub 上编辑此页</u>
+            </a>
+          )
+        }</small
+      >
+      <br />
+      © 2026 mcenahle.dev。本网站是 <iconify-icon icon="mdi:cookie-remove"
+      ></iconify-icon> 无 Cookie 网站。
+      <br />
+      <a
+        href="https://qname.ai/zh/age/mcenahle.dev"
+        target="_blank"
+        rel="noreferrer"
+      >
+        <img
+          src="https://qname.ai/api/badge/domain-age/mcenahle.dev?theme=purple&lang=zh"
+          alt="Domain age badge for mcenahle.dev"
+        />
+      </a></span
+    >
+  </div>
+</footer>

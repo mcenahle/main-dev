@@ -1,26 +1,47 @@
+---
+import Footer from "./Footer.astro";
+const pathname = Astro.url.pathname;
+
+const editUrl =
+  "https://github.com/mcenahle/main-dev/edit/main/src/pages" +
+  (pathname === "/" ? "/index.astro" : pathname + ".astro");
+---
+
 <!doctype html>
-<html lang="zh-CN">
+<html lang="zh-CN" class="h-100">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.1/css/bootstrap.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.8/css/bootstrap.min.css"
       rel="stylesheet"
     />
     <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.1/js/bootstrap.bundle.min.js"
+      src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.8/js/bootstrap.bundle.min.js"
     ></script>
     <script
       src="https://code.iconify.design/iconify-icon/3.0.0/iconify-icon.min.js"
     ></script>
 
     <style>
-      /* html,
+      html,
       body {
-        margin: 0;
-        width: 100%;
         height: 100%;
-      } */
+      }
+
+      body {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      main {
+        flex: 1;
+      }
+
+      footer {
+        margin-top: auto;
+      }
 
       body::before {
         content: "";
@@ -95,7 +116,7 @@
   <body>
     <nav class="navbar navbar-expand-md bg-custom navbar-dark fixed-top">
       <!-- Brand -->
-      <a class="navbar-brand" href="javascript:void(0)">mcenahle.dev</a>
+      <a class="navbar-brand" href="/">mcenahle.dev</a>
 
       <!-- Toggler/collapsibe Button -->
       <button
@@ -162,10 +183,9 @@
         </ul>
       </div>
     </nav>
-    <body>
-      <div class="container">
-        <slot />
-      </div>
-    </body>
+    <main class="container">
+      <slot />
+    </main>
+    <Footer editUrl={editUrl} />
   </body>
 </html>
