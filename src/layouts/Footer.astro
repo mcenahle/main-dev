@@ -6,7 +6,7 @@ interface Props {
 const { editUrl } = Astro.props;
 ---
 
-<small class="mt-auto py-3">
+<small class="mt-auto py-4">
   <div class="container">
     {
       editUrl && (
@@ -23,26 +23,30 @@ const { editUrl } = Astro.props;
 <footer class="footer mt-auto py-3 bg-body-tertiary">
   <div class="container">
     <span class="text-body-secondary">
+      © 2026 mcenahle.dev。
+      <br />
+      <iconify-icon icon="mdi:cookie-remove"></iconify-icon> 本网站不使用 Cookie。
+      <small><i>We do not use cookies. <b>We eat apples instead.</b></i></small>
+      <br />
       <div
         class="d-flex flex-column flex-md-row justify-content-between align-items-md-center"
       >
         <div>
-          © 2026 mcenahle.dev。本网站不使用 <iconify-icon
-            icon="mdi:cookie-remove"></iconify-icon> Cookie。
+          <iconify-icon icon="mdi:verified-user"></iconify-icon> 备案信息：<a
+            href="https://icp.gov.moe/?keyword=20265573"
+            target="_blank"
+          >
+            <u>萌ICP备20265573号</u>&nbsp;<iconify-icon icon="mdi:external-link"
+            ></iconify-icon></a
+          >
         </div>
 
         <div>
-          <iconify-icon icon="mdi:email-outline"></iconify-icon> 联系方式：<a
-            href="mailto:hi@mcenahle.page"><u>hi@mcenahle.page</u></a
-          >。
+          <iconify-icon icon="mdi:email-outline"></iconify-icon>&nbsp;
+          <a href="mailto:hi@mcenahle.page"><u>hi@mcenahle.page</u></a>
         </div>
       </div>
-      <a href="https://icp.gov.moe/?keyword=20265573" target="_blank"
-        ><iconify-icon icon="mdi:verified-user"></iconify-icon>&nbsp;
-        <u>萌ICP备20265573号</u>&nbsp;<iconify-icon icon="mdi:external-link"
-        ></iconify-icon></a
-      >
-      <br />
+
       <a
         href="https://qname.ai/zh/age/mcenahle.dev"
         target="_blank"
