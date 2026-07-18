@@ -1,0 +1,39 @@
+---
+import Layout from "./Layout.astro";
+
+interface Props {
+  title: string;
+  date: string;
+  description?: string;
+}
+
+const { title, date, description = "" } = Astro.props;
+---
+
+<Layout title={title} description={description}>
+  <main class="container py-4">
+    <article class="domain-card bg-white shadow-sm overflow-hidden rounded-3">
+      <header class="domain-card-header py-3 px-4 border-bottom">
+        <h1 class="text-black fs-5 fw-bold mb-0">
+          {title}
+        </h1>
+
+        <div class="small text-muted mt-2">
+          日期：<time datetime={date}>{date}</time>
+        </div>
+      </header>
+
+      <div class="domain-card-body p-4 lh2">
+        <slot />
+        <hr style="margin-top: 24px;" />
+        <small
+          ><a href="/blogs"
+            ><iconify-icon icon="mdi:chevron-left"></iconify-icon>&nbsp;<u
+              >返回博客文章目录</u
+            ></a
+          ></small
+        >
+      </div>
+    </article>
+  </main>
+</Layout>
