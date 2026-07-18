@@ -1,0 +1,80 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+interface BlogModule {
+  title: string;
+  date: string;
+  description?: string;
+}
+
+const modules = import.meta.glob<BlogModule>("./*.astro", {
+  eager: true,
+});
+
+const posts = Object.entries(modules)
+  // 排除博客首页自己
+  .filter(([path]) => path !== "./index.astro")
+
+  // 整理文章信息
+  .map(([path, post]) => {
+    const filename = path.replace("./", "").replace(".astro", "");
+
+    return {
+      title: post.title,
+      date: post.date,
+      description: post.description,
+      url: `/blogs/${filename}`,
+    };
+  })
+
+  // 按日期从新到旧排列
+  .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+---
+
+<Layout title="博客" description="Mcenahle 的博客文章">
+  <main class="container py-4">
+    <div class="domain-card bg-white shadow-sm overflow-hidden rounded-3">
+      <div class="domain-card-header py-3 px-4 border-bottom">
+        <h1 class="text-black fs-5 fw-bold mb-0">博客</h1>
+
+        <div class="small text-muted mt-2">随便写点东西。</div>
+      </div>
+
+      <div class="domain-card-body p-4">
+        {
+          posts.length === 0 ? (
+            <p class="text-muted mb-0">暂时还没有文章。</p>
+          ) : (
+            <div class="list-group list-group-flush">
+              {posts.map((post) => (
+                <a
+                  href={post.url}
+                  class="list-group-item list-group-item-action px-0 py-3"
+                >
+                  <div class="d-flex justify-content-between gap-3">
+                    <div>
+                      <div class="fw-bold text-body">{post.title}</div>
+
+                      {post.description && (
+                        <div class="small text-muted mt-1">
+                          {post.description}
+                        </div>
+                      )}
+                    </div>
+
+                    <time
+                      datetime={post.date}
+                      class="small text-muted flex-shrink-0"
+                    >
+                      {post.date}
+                    </time>
+                  </div>
+                </a>
+              ))}
+            </div>
+          )
+        }
+      </div>
+    </div>
+  </main>
+</Layout>
