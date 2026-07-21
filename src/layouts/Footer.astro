@@ -60,16 +60,26 @@ const { editUrl } = Astro.props;
 
       <br />
 
-      <div
-        title="MySSL 安全签章"
-        id="myssl_seal"
-        onclick="window.open('https://myssl.com/seal/detail?domain=mcenahle.dev','MySSL安全签章','height=800,width=470,top=0,right=0,toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no')"
-        style="text-align: center"
-      >
+      <div style="text-align: center; margin-top: 6px;">
         <img
           src="/images/seal-ssl.svg"
           alt="MySSL 安全签章"
           style="width: 100px; height: auto; cursor: pointer"
+          onclick="window.open('https://myssl.com/seal/detail?domain=mcenahle.dev','MySSL 安全签章','height=800,width=470,top=0,right=0,toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no')"
+        />
+        &nbsp;|&nbsp;
+        <img
+          src="/images/ProtectedByCloudflareBadge.png"
+          alt="Protected by Cloudflare"
+          style="width: 120px; height: auto; cursor: pointer"
+          onclick="window.open('https://www.cloudflare.com','Protected by Cloudflare','height=800,width=470,top=0,right=0,toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no')"
+        />
+        &nbsp;|&nbsp;
+        <img
+          src="/images/astro-logo-dark.svg"
+          alt="Powered by Astro"
+          style="width: 120px; height: auto; cursor: pointer"
+          onclick="window.open('https://astro.build','Powered by Astro','height=800,width=470,top=0,right=0,toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no')"
         />
       </div>
     </span>
